@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Mis 15 - Publiboss Manta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #D4AF37; /* Dorado clásico */
+            --primary-dark: #b5952f;
+            --bg-color: #FAF9F6; /* Blanco roto / Crema muy suave */
+            --text-dark: #1A1A1A; /* Gris casi negro */
+            --text-light: #555555; /* Gris medio para descripciones */
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #e2e8f0;
+            display: grid;
+            gap: 40px;
+            place-items: center;
+            margin: 0;
+            padding: 40px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Tipografía Base */
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .slide-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .slide-title::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .content-area {
+            flex-grow: 1;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- SLIDE 1: PORTADA --- */
+        .title-slide {
+            /* AQUÍ VA TU FOTO DE PORTADA */
+            background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.8)), url('portada_15.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+            border: 3px solid var(--primary);
+            background-color: #000; 
+        }
+
+        .title-slide h1 {
+            font-size: 85px;
+            letter-spacing: 10px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .title-slide .subtitle {
+            font-size: 22px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            margin-bottom: 40px;
+            color: #dddddd;
+        }
+
+        .title-slide .location {
+            position: absolute;
+            bottom: 50px;
+            font-size: 16px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* --- SLIDE 2: VISIÓN --- */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+            align-items: center;
+        }
+
+        .vision-text {
+            font-size: 20px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            background: var(--white);
+            padding: 25px 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .feature-item i {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .image-wrapper {
+            width: 100%;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- SLIDE 3: PAQUETES --- */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            height: 100%;
+            align-items: stretch;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eaeaeb;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            position: relative;
+        }
+
+        .package-card.highlight {
+            border: 2px solid var(--primary);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+            transform: scale(1.03);
+            background-color: var(--white);
+            z-index: 10;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pkg-name {
+            font-size: 26px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .pkg-price {
+            font-size: 42px;
+            color: var(--primary);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pkg-list {
+            list-style: none;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .pkg-list li {
+            font-size: 15px;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-light);
+        }
+
+        .pkg-list li i {
+            color: var(--primary);
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .pkg-list li .fa-xmark {
+            color: #cccccc;
+        }
+
+        /* --- SLIDE 4: PRE-15 --- */
+        .pre-wedding-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .info-block {
+            margin-bottom: 35px;
+        }
+
+        .info-block h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-block p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .image-collage {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            height: 480px;
+        }
+
+        .image-collage .img-box {
+            border-radius: 16px;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .image-collage .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        /* --- SLIDE 5: PAGOS Y ENTREGAS --- */
+        .split-slide {
+            flex-direction: row;
+            padding: 0;
+            background: var(--white);
+        }
+
+        .split-left {
+            flex: 1;
+            /* AQUÍ VA TU FOTO DE HORA LOCA DE FONDO */
+            background: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('hora_loca.jpg') center/cover;
+        }
+
+        .split-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .split-text {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bold-text {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        /* --- SLIDE 6 & 7: EXTRAS & LIMITACIONES --- */
+        .centered-slide {
+            align-items: center;
+            text-align: center;
+            padding: 80px 150px;
+            background: var(--bg-color);
+        }
+
+        .extras-grid {
+            display: grid;
+            gap: 35px;
+            font-size: 18px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .extras-price {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            margin-top: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .limitaciones-text {
+            font-size: 16px;
+            line-height: 1.9;
+            color: var(--text-light);
+            text-align: justify;
+            text-align-last: center;
+            margin-bottom: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: PORTADA -->
+<div class="slide-container title-slide" id="slide1">
+    <img src="Auspicio (1080 x 1080 px) (4).png" alt="Logo Publiboss" class="logo-img">
+    <h1>Publiboss</h1>
+    <p class="subtitle">COBERTURA AUDIOVISUAL - MIS 15 AÑOS</p>
+    <p class="location"><i class="fa-solid fa-location-dot" style="margin-right: 8px;"></i> Manta, Ecuador</p>
+</div>
+
+<!-- SLIDE 2: NUESTRA VISIÓN -->
+<div class="slide-container" id="slide2">
+    <div class="content-area">
+        <h2 class="slide-title">Hacemos de tu noche, una película</h2>
+        <div class="two-column">
+            <div class="text-content">
+                <p class="vision-text">
+                    Sabemos que los 15 años son una fecha inolvidable. Nuestro objetivo es capturar toda la emoción, el glamour y la diversión de tu noche. Con nuestro equipo de profesionales nos encargaremos de que no se escape ni un solo detalle, acompañándolos desde la ceremonia hasta que reviente la Hora Loca, garantizando recuerdos para toda la vida.
+                </p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <h3>Fotografía</h3>
+                        <p>Imágenes de Alta Resolución</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-masks-theater"></i>
+                        <h3>Hora Loca</h3>
+                        <p>Cobertura hasta la 1 AM</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <h3>Video Highlight</h3>
+                        <p>Los mejores momentos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <!-- Usando la foto del parque para la visión -->
+                <img src="sesion_parque.jpg" alt="Quinceañera en el parque">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 3: PAQUETES DE 15 -->
+<div class="slide-container" id="slide3">
+    <div class="content-area">
+        <h2 class="slide-title">Colección Mis 15</h2>
+        <div class="packages-grid">
+            <!-- Paquete Básico -->
+            <div class="package-card">
+                <h3 class="pkg-name serif-font">Paquete Plata</h3>
+                <div class="pkg-price">$180</div>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-church"></i> Cobertura Iglesia y Fiesta.</li>
+                    <li><i class="fa-solid fa-clock"></i> <b>Cobertura extendida hasta 1 AM</b> (Hora Loca).</li>
+                    <li><i class="fa-solid fa-user-group"></i> 2 Profesionales (Foto + Video).</li>
+                    <li><i class="fa-solid fa-image"></i> Fotografías del evento editadas.</li>
+                    <li><i class="fa-solid fa-film"></i> Video Resumen (Highlight).</li>
+                    <li><i class="fa-solid fa-xmark"></i> <b>No incluye</b> sesión de fotos previa.</li>
+                </ul>
+            </div>
+
+            <!-- Paquete ESTRELLA (El de $240) -->
+            <div class="package-card highlight">
+                <div class="badge">LA MEJOR ELECCIÓN</div>
+                <h3 class="pkg-name serif-font">Paquete Oro</h3>
+                <div class="pkg-price">$240</div>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-camera-retro"></i> <b>Sesión Pre-15 (Exteriores).</b></li>
+                    <li><i class="fa-solid fa-image"></i> <b>15 Fotos Pre-15</b> editadas profesionalmente.</li>
+                    <li><i class="fa-solid fa-church"></i> Cobertura Iglesia y Fiesta.</li>
+                    <li><i class="fa-solid fa-clock"></i> <b>Cobertura extendida hasta 1 AM</b> (Hora Loca).</li>
+                    <li><i class="fa-solid fa-user-group"></i> 2 Profesionales (Foto + Video).</li>
+                    <li><i class="fa-solid fa-film"></i> Video Resumen (Highlight) del evento.</li>
+                </ul>
+            </div>
+
+            <!-- Paquete Señuelo -->
+            <div class="package-card">
+                <h3 class="pkg-name serif-font">Paquete Diamante</h3>
+                <div class="pkg-price">$490</div>
+                <ul class="pkg-list">
+                    <li><i class="fa-solid fa-camera-retro"></i> Sesión Pre-15 Extendida (2 Cambios).</li>
+                    <li><i class="fa-solid fa-image"></i> 30 Fotos Pre-15 editadas.</li>
+                    <li><i class="fa-solid fa-clock"></i> Cobertura total del evento hasta 2 AM.</li>
+                    <li><i class="fa-solid fa-location-crosshairs"></i> <b>Tomas Aéreas con Dron.</b></li>
+                    <li><i class="fa-solid fa-film"></i> Video Documental Largo (15-20 min).</li>
+                    <li><i class="fa-solid fa-book-open"></i> Photobook Impreso.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 4: SESIÓN PRE-15 -->
+<div class="slide-container" id="slide4">
+    <div class="content-area">
+        <h2 class="slide-title">Sesión Pre-15 (Exteriores)</h2>
+        <div class="pre-wedding-grid">
+            <div class="text-content" style="padding-top: 20px;">
+                <p style="font-size: 18px; color: var(--text-light); margin-bottom: 40px; line-height: 1.6;">
+                    Incluida en nuestro Paquete Oro, esta sesión previa es clave. Ideal para que tengan una galería impecable de donde elegir la foto perfecta para el cuadro de firmas, invitaciones y recuerdos del evento.
+                </p>
+                
+                <div class="info-block">
+                    <h3><i class="fa-solid fa-map-location-dot"></i> La Locación Perfecta</h3>
+                    <p>Ustedes eligen el ambiente: La elegancia de un parque, la diversión de una piscina, o la magia de nuestras hermosas playas en Manta.</p>
+                </div>
+                
+                <div class="info-block">
+                    <h3><i class="fa-solid fa-image"></i> Galería Exclusiva</h3>
+                    <p>Entregamos una galería digital con <b>15 fotografías tomadas y editadas profesionalmente</b>, resaltando la belleza y estilo de la quinceañera.</p>
+                </div>
+            </div>
+            
+            <div class="image-collage">
+                <div class="img-box">
+                    <!-- FOTO DE LA PISCINA -->
+                    <img src="sesion_piscina.jpg" alt="Sesión quinceañera piscina">
+                </div>
+                <div class="img-box">
+                    <!-- PUEDES PONER OTRA FOTO DEL PARQUE O PLAYA AQUÍ -->
+                    <img src="sesion_parque.jpg" alt="Sesión quinceañera exterior">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 5: PAGOS Y ENTREGAS -->
+<div class="slide-container split-slide" id="slide5">
+    <div class="split-left"></div>
+    
+    <div class="split-right">
+        <h2 class="serif-font section-title">Metodología de pago y Reserva</h2>
+        <p class="split-text">
+            Se realizará un abono del 50%<br>para agendar la fecha<br>
+            y el 50% restante antes de la fecha del evento.
+        </p>
+
+        <h2 class="serif-font section-title">Tiempos de entrega</h2>
+        <p class="split-text">
+            La entrega del material<br>se realizará en un plazo de:<br><br>
+            <span class="bold-text">20 - 30 DÍAS</span><br>
+            para fotografías completas y video del evento.<br><br>
+            <span class="bold-text">Fotos Pre-15:</span><br>
+            Se entregan anticipadamente para su uso en invitaciones o cuadros.<br><br>
+            La entrega se realiza en formato digital.
+        </p>
+    </div>
+</div>
+
+<!-- SLIDE 6: EXTRAS -->
+<div class="slide-container" id="slide6">
+    <div class="content-area centered-slide">
+        <h2 class="serif-font" style="font-size: 56px; margin-bottom: 50px; color: var(--text-dark);">Extras</h2>
+        
+        <div class="extras-grid">
+            <div>
+                Cobertura Hora Extra (Después de la 1 AM)
+                <span class="extras-price">$100</span>
+            </div>
+            <div>
+                Edición de vídeo con mayor duración
+                <span class="extras-price">$60</span>
+            </div>
+            <div style="margin-top: 20px;">
+                Viáticos (Fuera de Manta, Montecristi, Portoviejo)
+                <span class="extras-price">$50</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 7: LIMITACIONES -->
+<div class="slide-container" id="slide7">
+    <div class="content-area centered-slide">
+        <h2 class="serif-font" style="font-size: 56px; margin-bottom: 40px; color: var(--text-dark);">Limitaciones</h2>
+        
+        <p class="limitaciones-text">
+            El equipo está limitado por las reglas del lugar donde se lleve a cabo la ceremonia oficial y la recepción. El cliente acuerda aceptar los resultados técnicos de esas imposiciones del lugar sobre el equipo audiovisual. La negociación con la(s) persona(s) encargada(s) de esas reglas para su alteración es responsabilidad del Cliente.
+        </p>
+        
+        <p class="limitaciones-text">
+            Aunque nuestro equipo intente hacer cada toma requerida específicamente por el cliente, este último entiende que un evento en vivo puede convertirse en una serie de limitaciones para un correcto uso profesional videográfico y fotográfico. Esto debido a problemas externos tales como: condiciones atmosféricas, iluminación disponible, restricciones de tiempo, así como la cooperación de los invitados.
+        </p>
+
+        <p class="limitaciones-text">
+            Debido a esto, Publiboss no puede garantizar que todas las tomas requeridas sean grabadas correcta y profesionalmente si ocurren estos imprevistos. De ser necesario, si existiera alguna disconformidad, el equipo se limitará únicamente a ofrecer al cliente una segunda revisión de todo el material realizado. El depósito o saldo total no serán reembolsables.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
