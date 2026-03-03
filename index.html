@@ -82,7 +82,6 @@
 
         /* --- SLIDE 1: PORTADA --- */
         .title-slide {
-            /* AQUÍ VA TU FOTO DE PORTADA */
             background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.8)), url('portada_15.jpg');
             background-size: cover;
             background-position: center;
@@ -308,10 +307,10 @@
             line-height: 1.6;
         }
 
+        /* NUEVA ESTRUCTURA PARA UNA SOLA FOTO GRANDE */
         .image-collage {
-            display: grid;
-            grid-template-rows: 1fr 1fr;
-            gap: 20px;
+            display: flex;
+            width: 100%;
             height: 480px;
         }
 
@@ -327,7 +326,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
+            object-position: center; /* Centrado perfecto para la foto de la piscina */
         }
 
         /* --- SLIDE 5: PAGOS Y ENTREGAS --- */
@@ -339,7 +338,6 @@
 
         .split-left {
             flex: 1;
-            /* AQUÍ VA TU FOTO DE HORA LOCA DE FONDO */
             background: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.4)), url('hora_loca.jpg') center/cover;
         }
 
@@ -532,12 +530,8 @@
             
             <div class="image-collage">
                 <div class="img-box">
-                    <!-- FOTO DE LA PISCINA -->
+                    <!-- FOTO DE LA PISCINA AHORA OCUPA TODO EL ESPACIO -->
                     <img src="sesion_piscina.jpg" alt="Sesión quinceañera piscina">
-                </div>
-                <div class="img-box">
-                    <!-- PUEDES PONER OTRA FOTO DEL PARQUE O PLAYA AQUÍ -->
-                    <img src="sesion_parque.jpg" alt="Sesión quinceañera exterior">
                 </div>
             </div>
         </div>
